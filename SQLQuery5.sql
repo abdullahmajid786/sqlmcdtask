@@ -1,6 +1,6 @@
-/* ============================================================
-   SECTION 5 — Subqueries
-   ============================================================ */
+
+   --SECTION 5 
+   
 
 -- Task 29: Find all products whose list price is above the overall average list price.
 SELECT
@@ -20,14 +20,7 @@ WHERE customer_id NOT IN (
     SELECT customer_id
     FROM sales.orders
     WHERE customer_id IS NOT NULL
-);
 
--- Equivalent using NOT EXISTS (generally safer/faster than NOT IN):
--- SELECT c.customer_id, c.first_name, c.last_name
--- FROM sales.customers AS c
--- WHERE NOT EXISTS (
---     SELECT 1 FROM sales.orders AS o WHERE o.customer_id = c.customer_id
--- );
 
 
 -- Task 31: List the most expensive product in each category.
