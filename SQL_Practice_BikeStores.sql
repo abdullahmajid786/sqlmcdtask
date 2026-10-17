@@ -1,37 +1,12 @@
-/*
-================================================================================
-SQL Practice Questions - BikeStores Dataset
-Topics: Joins, GROUP BY, Subqueries, CTEs & Window Functions
-Database: BikeStores (bikestore)
 
-Tables Used:
-  - sales.orders
-  - sales.order_items
-  - sales.customers
-  - sales.stores
-  - sales.staffs
-  - production.products
-  - production.brands
-  - production.categories
-  - production.stocks
-
-Formulas & Constants:
-  - Order status codes: 1 = Pending, 2 = Processing, 3 = Rejected, 4 = Completed
-  - Revenue formula: quantity * list_price * (1 - discount)
-================================================================================
-*/
 
 USE bikestore;
 GO
 
--- =============================================================================
 -- SECTION 1: JOINS
--- =============================================================================
 
--- -----------------------------------------------------------------------------
 -- Q1. (Easy) List every order with the customer's full name, store name, 
---            and the full name of the staff member who handled it.
--- -----------------------------------------------------------------------------
+
 SELECT
     o.order_id,
     o.order_date,
