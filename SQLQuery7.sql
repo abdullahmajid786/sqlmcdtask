@@ -39,11 +39,6 @@ GO
 -- DENSE_RANK() by list_price descending within its category. 
 -- Show a product where the two rankings differ.
 -- =============================================================================
--- Explanation:
--- RANK() skips rank numbers after ties (e.g., 1, 2, 2, 4), whereas DENSE_RANK()
--- does not skip any numbers after ties (e.g., 1, 2, 2, 3).
--- When products share the exact same list_price within a category, subsequent
--- products will exhibit differing rank numbers between RANK() and DENSE_RANK().
 
 WITH RankedProducts AS (
     SELECT
@@ -169,34 +164,6 @@ GO
 -- while FIRST_VALUE() works correctly with the default frame? 
 -- What is the default window frame when ORDER BY is specified, and how 
 -- does that explain the behavior?
---
--- Detailed Explanation:
--- 1. What is the default window frame?
---    When ORDER BY is specified inside an OVER() clause and no explicit frame 
---    (ROWS or RANGE) is provided, the ANSI SQL and T-SQL default frame is:
---        RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
---
--- 2. Why does FIRST_VALUE() work correctly with the default frame?
---    The default window frame starts at UNBOUNDED PRECEDING (the very first row 
---    of the partition) and ends at CURRENT ROW.
---    Because the first row of the partition is ALWAYS within this frame at every 
---    step of evaluation, FIRST_VALUE() always inspects row #1 of the partition 
---    and reliably returns that partition's first value.
---
--- 3. Why does LAST_VALUE() fail to return the actual last value with the default frame?
---    Because the default frame terminates at CURRENT ROW (or its peers), the window 
---    frame never looks forward to the end of the partition!
---    At row 1: the frame covers row 1 to row 1 -> LAST_VALUE() returns row 1.
---    At row 2: the frame covers row 1 to row 2 -> LAST_VALUE() returns row 2.
---    At row N: the frame only covers up to row N.
---    Therefore, without an explicit frame, LAST_VALUE() acts like a "current value" 
---    tracker rather than returning the partition's ultimate value.
---
--- 4. How specifying UNBOUNDED FOLLOWING fixes it:
---    Specifying "BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING" extends the 
---    frame boundaries across the ENTIRE partition for every row evaluated. 
---    This allows LAST_VALUE() to look ahead all the way to the final row of the 
---    partition, successfully returning the true last value.
 -- =============================================================================
 
 -- Demonstration Query for 7.6:
