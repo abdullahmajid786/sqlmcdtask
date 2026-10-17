@@ -31,9 +31,14 @@ This repository contains complete, verified solutions for both the **Python Data
 * **Q9 (Hard)**: Multi-CTE calculation of customer spend, top 10 ranked customers (`DENSE_RANK()`), and tier classification (`High` vs `Regular` based on overall average).
 * **Q10 (Hard)**: Multi-CTE identifying the best-selling product by quantity in each category (`ROW_NUMBER() OVER (PARTITION BY category_id ORDER BY total_qty_sold DESC)`), joined with total stock across all stores.
 
-#### 5. Bonus Challenges
-* **Bonus 1**: Rewrite of Q8 with modular CTEs (`CustomerOrderCounts` & `BenchmarkAvgOrders`) with detailed readability and maintainability comparison.
-* **Bonus 2**: Revenue percentage share per store using window function `SUM(store_revenue) OVER ()`.
+#### 5. Section 5 — Subqueries & APPLY (`SQLQuery5_Subqueries.sql` & `SQLQuery5.sql`)
+* **Task 5.1**: Correlated scalar subquery in `WHERE` finding products priced above their brand average.
+* **Task 5.2**: `IN` predicate filtering orders placed by customers in NY or CA.
+* **Task 5.3**: Resolving the classic `NOT IN` three-valued logic NULL trap (`WHERE customer_id IS NOT NULL`).
+* **Task 5.4**: Derived table in `FROM` calculating average line items and total units per order.
+* **Task 5.5**: Rewriting `EXISTS` into `IN`, detailing why `EXISTS` is safer against `NULL` semantics.
+* **Task 5.6**: `CROSS APPLY` returning top 3 most recent orders per customer.
+* **Task 5.7 (Think About It)**: Comparison of `ANY` vs `ALL` vs `IN`, demonstrating queries requiring `> ALL` that cannot be naturally expressed with `IN`.
 
 #### 6. Section 6 — Common Table Expressions (`SQLQuery6_CTEs.sql` & `SQLQuery6.sql`)
 * **Task 6.1**: Rewrite derived table query into a clean, reusable CTE for calculating average order count per store.
