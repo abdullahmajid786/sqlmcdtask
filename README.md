@@ -1,67 +1,77 @@
-# Python Data Structures | Lists (Part 1 of 5)
+# Python Data Structures Practice
 
 ## 📌 Assignment Overview
-This repository contains solutions to **Python Practice: Lists (Questions 1 - 10)** ranging from Beginner to Expert levels.
+This repository contains solutions to the Python Data Structures practice series ranging from Beginner to Expert levels.
 
-### ⚠️ Rules Followed:
-- ❌ **No for/while loops**
+### ⚠️ Strict Rules Followed Across All Solutions:
+- ❌ **No `for` / `while` loops**
 - ❌ **No comprehensions** (list, set, dict, generator)
 - ❌ **No recursion**
-- ❌ **No map / filter / reduce**
+- ❌ **No `map` / `filter` / `reduce`**
+- ❌ **No lambda functions** (specifically in Q18)
 - ❌ **No hardcoded answers**
 - ✅ **Strictly uses**: Indexing, slicing, operators, built-in functions, and data structure methods.
 
 ---
 
-## 📋 Solutions Summary
+## 📁 Repository Structure
+- `python_lists_part1.py` - Part 1: Lists (Questions 1 - 10)
+- `test_python_lists.py` - Unit tests for Questions 1 - 10
+- `python_tuples_part2.py` - Part 2: Tuples (Questions 11 - 20)
+- `test_python_tuples.py` - Unit tests for Questions 11 - 20
+
+---
+
+## 📋 Part 1: Lists (Questions 1 - 10)
 
 ### Level: Beginner
-* **Q1. Accessing List Elements**
-  - First: `numbers[0]`
-  - Middle: `numbers[len(numbers) // 2]`
-  - Last: `numbers[-1]`
-* **Q2. List Slicing**
-  - First five: `numbers[:5]`
-  - Last four: `numbers[-4:]`
-  - Every second reversed: `numbers[::-2]`
-* **Q3. List Modification**
-  - Replace banana with orange: `fruits[fruits.index("banana")] = "orange"`
-  - Add grapes at index 2: `fruits.insert(2, "grapes")`
-  - Remove cherry: `fruits.remove("cherry")`
+* **Q1. Accessing List Elements**: First (`numbers[0]`), Middle (`numbers[len(numbers) // 2]`), Last (`numbers[-1]`).
+* **Q2. List Slicing**: First five (`[:5]`), last four (`[-4:]`), every second reverse (`[::-2]`).
+* **Q3. List Modification**: `fruits.index()`, `fruits.insert(2, ...)`, `fruits.remove(...)`.
 
 ### Level: Intermediate
-* **Q4. Reverse Without `reverse()`**
-  - Reversed using slicing: `numbers[::-1]`
-* **Q5. Second Largest Unique Number**
-  - `sorted(set(numbers))[-2]` (Expected: `67`)
-* **Q6. Rotate a List**
-  - Right rotation by `k`: `numbers[-(k % len(numbers)):] + numbers[:-(k % len(numbers))]`
-* **Q7. Remove Duplicates, Preserve Order**
-  - `list(dict.fromkeys(numbers))`
+* **Q4. Reverse Without `reverse()`**: Slicing `numbers[::-1]`.
+* **Q5. Second Largest Unique Number**: `sorted(set(numbers))[-2]`.
+* **Q6. Rotate a List (Right by `k`)**: `numbers[-(k % len(numbers)):] + numbers[:-(k % len(numbers))]`.
+* **Q7. Remove Duplicates, Preserve Order**: `list(dict.fromkeys(numbers))`.
 
 ### Level: Advanced
-* **Q8. Flatten a Nested List**
-  - `sum(data, [])` (List concatenation via built-in `sum`)
-* **Q9. Extract Data from a Matrix**
-  - Main diagonal: `[matrix[0][0], matrix[1][1], matrix[2][2]]`
-  - Secondary diagonal: `[matrix[0][2], matrix[1][1], matrix[2][0]]`
-  - Middle column: `[matrix[0][1], matrix[1][1], matrix[2][1]]`
-  - Sums calculated via `sum()`
-* **Q10. List Transformation Challenge**
-  - 3 largest unique ascending: `sorted(set(data))[-3:]`
-  - 2 smallest unique descending: `sorted(set(data))[:2][::-1]`
-  - Combined: `sorted(set(data))[-3:] + sorted(set(data))[:2][::-1]` (Expected: `[25, 30, 35, 10, 5]`)
+* **Q8. Flatten a Nested List**: `sum(data, [])`.
+* **Q9. Extract Data from a Matrix**: Main diagonal, secondary diagonal, and middle column indexing with `sum()`.
+* **Q10. List Transformation Challenge**: `sorted(set(data))[-3:] + sorted(set(data))[:2][::-1]`.
+
+---
+
+## 📋 Part 2: Tuples (Questions 11 - 20)
+
+### Level: Beginner
+* **Q11. Tuple Indexing**: Second (`colors[1]`), Last (`colors[-1]`), Middle three (`colors[1:4]`).
+* **Q12. Tuple Unpacking**: `name, age, designation, salary = employee`.
+* **Q13. Tuple Concatenation**: `combined = tuple1 + tuple2`, `reversed = combined[::-1]`.
+
+### Level: Intermediate
+* **Q14. Count and Locate**: `numbers.count(20)` and `numbers.index(20)`.
+* **Q15. Extended Tuple Unpacking**: `first, second, *remaining, last = data`.
+* **Q16. Modify an Immutable Tuple**: Slicing replacement `numbers[:idx] + (300,) + numbers[idx+1:]`.
+* **Q17. Nested Tuple Access**: `students[1][1][1]`, `sum(students[0][1])/len(...)`, `max(students[2][1])`.
+
+### Level: Advanced
+* **Q18. Tuple Sorting (No Loops/Comprehensions/Lambda)**: `tuple(sorted(employees, key=operator.itemgetter(1), reverse=True))`.
+* **Q19. Tuple Matrix**: Diagonal extraction, `math.prod(diagonal)`, row sums `(sum(r0), sum(r1), sum(r2))`.
+* **Q20. Inventory Tuple Challenge**: Total inventory value sum of products, `max(records, key=itemgetter(1))`, reversed tuple of names.
 
 ---
 
 ## 🚀 How to Run
 
-Run the main solution file:
+### Run Solution Scripts:
 ```bash
 python python_lists_part1.py
+python python_tuples_part2.py
 ```
 
-Run the unit tests:
+### Run All Unit Tests:
 ```bash
 python test_python_lists.py
+python test_python_tuples.py
 ```
