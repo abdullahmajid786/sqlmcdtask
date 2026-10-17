@@ -35,6 +35,14 @@ This repository contains complete, verified solutions for both the **Python Data
 * **Bonus 1**: Rewrite of Q8 with modular CTEs (`CustomerOrderCounts` & `BenchmarkAvgOrders`) with detailed readability and maintainability comparison.
 * **Bonus 2**: Revenue percentage share per store using window function `SUM(store_revenue) OVER ()`.
 
+#### 6. Section 7 — Window Functions & Window Framing (`SQLQuery7.sql`)
+* **Task 7.1**: Sequential row numbering across all products (`ROW_NUMBER() OVER (ORDER BY list_price DESC)`) and partitioned by category (`ROW_NUMBER() OVER (PARTITION BY category_id ORDER BY list_price DESC)`).
+* **Task 7.2**: Comparison of `RANK()` vs. `DENSE_RANK()` by price descending within category, showing products where ties cause ranks to diverge.
+* **Task 7.3**: Month-over-month (MoM) revenue changes per store using `LAG()`, reporting current revenue, prior month revenue, and net difference.
+* **Task 7.4**: Dividing product catalog into 5 price bands using `NTILE(5)`.
+* **Task 7.5**: Order running revenue total ordered by `order_date` using frame `ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`.
+* **Task 7.6 (Think About It)**: Architectural analysis of default window frame (`RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW`), explaining why `FIRST_VALUE()` works out of the box while `LAST_VALUE()` requires `BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING`.
+
 ---
 
 ## 🐍 Python Data Structures Practice (Parts 1 - 5 | Questions 1 - 50)
