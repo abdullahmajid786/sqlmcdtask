@@ -8,7 +8,7 @@ This repository contains solutions to the Python Data Structures practice series
 - ❌ **No comprehensions** (list, set, dict, generator)
 - ❌ **No recursion**
 - ❌ **No `map` / `filter` / `reduce`**
-- ❌ **No lambda functions**
+- ❌ **No lambda functions** (specifically in Q18, Q35)
 - ❌ **No hardcoded answers**
 - ✅ **Strictly uses**: Indexing, slicing, operators, built-in functions, and data structure methods.
 
@@ -21,6 +21,8 @@ This repository contains solutions to the Python Data Structures practice series
 - `test_python_tuples.py` - Unit tests for Questions 11 - 20
 - `python_sets_part3.py` - Part 3: Sets (Questions 21 - 30)
 - `test_python_sets.py` - Unit tests for Questions 21 - 30
+- `python_dictionaries_part4.py` - Part 4: Dictionaries (Questions 31 - 40)
+- `test_python_dictionaries.py` - Unit tests for Questions 31 - 40
 
 ---
 
@@ -84,6 +86,26 @@ This repository contains solutions to the Python Data Structures practice series
 
 ---
 
+## 📋 Part 4: Dictionaries (Questions 31 - 40)
+
+### Level: Beginner
+* **Q31. Dictionary Access**: `student["name"]`, `student["marks"]`, `student.get("city", "Karachi")`.
+* **Q32. Update Dictionary**: 20% salary increase `employee["salary"] = int(employee["salary"] * 1.20)`, bonus `employee["bonus"] = 15000`, department change.
+* **Q33. Dictionary Methods**: `keys()`, `values()`, `items()`, and `product.pop("stock")`.
+
+### Level: Intermediate
+* **Q34. Merge Dictionaries**: Dict merge operator `dict1 | dict2`.
+* **Q35. Student Marks (No Loops/Lambda)**: `max(marks.values())`, `min(...)`, `sum(...)/len(...)`, and `max(marks, key=marks.get)`.
+* **Q36. Nested Employee Records**: `employees["E102"]["salary"]`, 15% raise to Ali, total payroll sum.
+* **Q37. Dictionary Inversion (No Loops/Comprehensions)**: `dict(zip(data.values(), data.keys()))`.
+
+### Level: Advanced
+* **Q38. Order Calculation**: Subtotals dict, grand total with `sum()`, and 10% discount calculation.
+* **Q39. Employee Performance**: Averages dict, top performer with `max(averages, key=averages.get)`, and highest SQL score with `max(...)`.
+* **Q40. Inventory Management**: Total inventory value, most valuable product with `max(item_values, key=item_values.get)`, and stock decrement after sales.
+
+---
+
 ## 🚀 How to Run
 
 ### Run Solution Scripts:
@@ -91,6 +113,7 @@ This repository contains solutions to the Python Data Structures practice series
 python python_lists_part1.py
 python python_tuples_part2.py
 python python_sets_part3.py
+python python_dictionaries_part4.py
 ```
 
 ### Run All Unit Tests:
