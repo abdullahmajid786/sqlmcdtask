@@ -8,7 +8,7 @@ This repository contains solutions to the Python Data Structures practice series
 - ❌ **No comprehensions** (list, set, dict, generator)
 - ❌ **No recursion**
 - ❌ **No `map` / `filter` / `reduce`**
-- ❌ **No lambda functions** (specifically in Q18)
+- ❌ **No lambda functions**
 - ❌ **No hardcoded answers**
 - ✅ **Strictly uses**: Indexing, slicing, operators, built-in functions, and data structure methods.
 
@@ -19,6 +19,8 @@ This repository contains solutions to the Python Data Structures practice series
 - `test_python_lists.py` - Unit tests for Questions 1 - 10
 - `python_tuples_part2.py` - Part 2: Tuples (Questions 11 - 20)
 - `test_python_tuples.py` - Unit tests for Questions 11 - 20
+- `python_sets_part3.py` - Part 3: Sets (Questions 21 - 30)
+- `test_python_sets.py` - Unit tests for Questions 21 - 30
 
 ---
 
@@ -62,16 +64,36 @@ This repository contains solutions to the Python Data Structures practice series
 
 ---
 
+## 📋 Part 3: Sets (Questions 21 - 30)
+
+### Level: Beginner
+* **Q21. Unique Values**: `set(numbers)` and `len(set(numbers))`.
+* **Q22. Set Operations**: Union (`a | b`), Intersection (`a & b`), Difference (`a - b`), Symmetric Difference (`a ^ b`).
+* **Q23. Add and Remove**: `skills.update({"Snowflake", "Databricks"})`, `skills.discard("AWS")`.
+
+### Level: Intermediate
+* **Q24. Common Students**: Taking both (`python & sql`), exactly one course (`python ^ sql`).
+* **Q25. Subset and Superset**: `required.issubset(candidate)`, `candidate.issuperset(required)`.
+* **Q26. Missing Numbers**: `set(range(1, 11)) - numbers`.
+* **Q27. Three-Set Analysis**: All three (`p & s & a`), exactly Python and SQL (`(p & s) - a`), at least two (`(p & s) | (s & a) | (p & a)`).
+
+### Level: Advanced
+* **Q28. Transaction Analysis**: All days (`d1 & d2 & d3`), at least two (`(d1 & d2) | (d2 & d3) | (d1 & d3)`), exactly one (`(d1 | d2 | d3) - at_least_two`).
+* **Q29. Access Control**: Missing permissions (`req - user`), extra (`user - req`), authorization (`req.issubset(user)`).
+* **Q30. Customer Segmentation**: All three platforms (`w & m & s`), exactly two (`at_least_two - all_three`), exactly one (`all_customers - at_least_two`).
+
+---
+
 ## 🚀 How to Run
 
 ### Run Solution Scripts:
 ```bash
 python python_lists_part1.py
 python python_tuples_part2.py
+python python_sets_part3.py
 ```
 
 ### Run All Unit Tests:
 ```bash
-python test_python_lists.py
-python test_python_tuples.py
+python -m unittest discover -p "test_*.py"
 ```
