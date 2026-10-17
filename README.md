@@ -35,7 +35,15 @@ This repository contains complete, verified solutions for both the **Python Data
 * **Bonus 1**: Rewrite of Q8 with modular CTEs (`CustomerOrderCounts` & `BenchmarkAvgOrders`) with detailed readability and maintainability comparison.
 * **Bonus 2**: Revenue percentage share per store using window function `SUM(store_revenue) OVER ()`.
 
-#### 6. Section 7 — Window Functions & Window Framing (`SQLQuery7.sql`)
+#### 6. Section 6 — Common Table Expressions (`SQLQuery6_CTEs.sql` & `SQLQuery6.sql`)
+* **Task 6.1**: Rewrite derived table query into a clean, reusable CTE for calculating average order count per store.
+* **Task 6.2**: `cte_high_value_products` CTE filtering for products priced `> 2000`, joined with categories to isolate 'Mountain Bikes'.
+* **Task 6.3**: Two CTEs in a single `WITH` clause combining per-customer order counts and per-customer revenue side by side.
+* **Task 6.4**: Recursive CTE generating numbers 1 to 10 with their squares ($n \times n$).
+* **Task 6.5**: Recursive CTE org chart navigating staff hierarchy (`manager_id`), displaying manager name and hierarchy level (0, 1, 2...).
+* **Task 6.6 (Think About It)**: Comprehensive analysis of CTE execution vs. subqueries, debunking the myth of automatic CTE materialization, and detailing temp table (`#temp`) usage for guaranteed single-evaluation reuse.
+
+#### 7. Section 7 — Window Functions & Window Framing (`SQLQuery7.sql`)
 * **Task 7.1**: Sequential row numbering across all products (`ROW_NUMBER() OVER (ORDER BY list_price DESC)`) and partitioned by category (`ROW_NUMBER() OVER (PARTITION BY category_id ORDER BY list_price DESC)`).
 * **Task 7.2**: Comparison of `RANK()` vs. `DENSE_RANK()` by price descending within category, showing products where ties cause ranks to diverge.
 * **Task 7.3**: Month-over-month (MoM) revenue changes per store using `LAG()`, reporting current revenue, prior month revenue, and net difference.
